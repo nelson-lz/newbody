@@ -1,5 +1,6 @@
 package py.edu.fpune.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -74,7 +75,7 @@ public class Cotizacion {
 
 	@Override
 	public String toString() {
-		return "Cotizacion [id=" + id + ", fecha=" + fecha + ", monedaId=" + monedaId + ", cotizacion=" + cotizacion
+		return "Cotizacion [id=" + id + ", fecha=" +  new SimpleDateFormat("yyyy-MM-dd").format(fecha) + ", monedaId=" + monedaId.getDescripcion() + ", cotizacion=" + cotizacion
 				+ ", estado=" + estado + "]";
 	}
 }

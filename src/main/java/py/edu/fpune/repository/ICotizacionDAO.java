@@ -9,7 +9,7 @@ import py.edu.fpune.model.Moneda;
 
 public interface ICotizacionDAO extends JpaRepository<Cotizacion, Integer>{
 	
-	List<Cotizacion> findByMonedaId(Moneda monedaId);
+	List<Cotizacion> findByMonedaIdOrderByFechaAsc(Moneda moneda);
 	
-	List<Cotizacion> findByEstado(String estado);
+	List<Cotizacion> findByEstadoIgnoreCase(String estado);
 }

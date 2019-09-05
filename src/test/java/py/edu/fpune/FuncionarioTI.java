@@ -3,6 +3,9 @@ package py.edu.fpune;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -40,11 +43,15 @@ public class FuncionarioTI {
 	 */
 		
 		@Test
-		public void getAniversariosEntre() {
-			List<Funcionario> funcionarios= daoFun.findByFechaNacimientoBetween(new Date(1988, 01, 01), new Date(1990,01,01));
+		public void getAniversariosEntre() throws ParseException {
+			Date desde= new SimpleDateFormat("yyyy-MM-dd").parse("1988-01-01");
+			Date hasta = new SimpleDateFormat("yyyy-MM-dd").parse("1990-01-01");
+			System.out.println("desde="+desde+", hasta="+hasta);
+			List<Funcionario> funcionarios= daoFun.findByFechaNacimientoBetween(desde, hasta);
 			for(Funcionario fun: funcionarios) {
 				System.out.println(fun.getNombres());
 			}
+			System.out.println("Cantidad de funcionarios obtenidos="+funcionarios.size());
 			assertNotNull(funcionarios);
 		}
 
