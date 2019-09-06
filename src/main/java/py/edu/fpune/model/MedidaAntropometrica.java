@@ -1,5 +1,6 @@
 package py.edu.fpune.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="medida_antropometrica")
-public class MedidaAtropometrica {
+public class MedidaAntropometrica {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,10 +37,10 @@ public class MedidaAtropometrica {
 	private byte[] foto2;
 	private byte[] foto3;
 	
-	public MedidaAtropometrica() {
+	public MedidaAntropometrica() {
 	}
 
-	public MedidaAtropometrica(Cliente clienteId, Usuario usuarioId, float altura, float cintura,
+	public MedidaAntropometrica(Cliente clienteId, Usuario usuarioId, float altura, float cintura,
 			float pecho, float gluteo, float peso, float grasa, float hueso, float musculo, Date fecha, byte[] foto1,
 			byte[] foto2, byte[] foto3) {
 		this.clienteId = clienteId;
@@ -180,9 +181,9 @@ public class MedidaAtropometrica {
 
 	@Override
 	public String toString() {
-		return "MedidaAtropometrica [id=" + id + ", clienteId=" + clienteId + ", UsuarioId=" + UsuarioId + ", altura="
+		return "MedidaAtropometrica [id=" + id + ", clienteId=" + clienteId.getNombres() + ", UsuarioId=" + UsuarioId.getNombre() + ", altura="
 				+ altura + ", cintura=" + cintura + ", pecho=" + pecho + ", gluteo=" + gluteo + ", peso=" + peso
-				+ ", grasa=" + grasa + ", hueso=" + hueso + ", musculo=" + musculo + ", fecha=" + fecha + ", foto1="
+				+ ", grasa=" + grasa + ", hueso=" + hueso + ", musculo=" + musculo + ", fecha=" + new SimpleDateFormat("yyyy-MM-dd").format(fecha) + ", foto1="
 				+ Arrays.toString(foto1) + ", foto2=" + Arrays.toString(foto2) + ", foto3=" + Arrays.toString(foto3)
 				+ "]";
 	}

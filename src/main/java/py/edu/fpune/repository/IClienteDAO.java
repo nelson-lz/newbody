@@ -8,9 +8,20 @@ import py.edu.fpune.model.Cliente;
 
 public interface IClienteDAO extends JpaRepository<Cliente, Integer>{
 
-	List<Cliente> findByNombres(String nombres);
-	List<Cliente> findByApellidos(String apellidos);
+	List<Cliente> findByNombresContainingIgnoreCaseOrApellidosContainingIgnoreCase(String nom, String ape);
+	List<Cliente> findByNombresContainingOrApellidosContaining(String nom, String ape);
+	
+	List<Cliente> findByNombresIgnoreCase(String nombres);
+	List<Cliente> findByNombresContainingIgnoreCase(String nombres);
+	
+	List<Cliente> findByApellidosIgnoreCase(String apellidos);
+	List<Cliente> findByApellidosContainingIgnoreCase(String apellidos);
+	
+	List<Cliente> findByRucContaining(String ruc);
+	Cliente findByRuc(String ruc);
+	
+	List<Cliente> findByAniversariosDelMes(Integer numeroDelMes, String estado);
+	
 	List<Cliente> findByEstado(String estado);
-	List<Cliente> findByRuc(String ruc);
 	
 }
