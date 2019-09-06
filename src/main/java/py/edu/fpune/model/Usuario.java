@@ -90,7 +90,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", nombre=" + nombre + ", pass=" + pass + ", funcionario=" + funcionarioId
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", pass=" + pass + ", funcionarioNombre=" + funcionarioId.getNombres()
 				+ ", nivelAcceso=" + nivelAcceso + ", estado=" + estado + "]";
 	}
 }

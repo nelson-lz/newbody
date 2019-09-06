@@ -1,6 +1,6 @@
 package py.edu.fpune;
 
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
@@ -22,21 +22,22 @@ public class UsuarioTI {
 	
 	@Test
 	public void gerUsuarioPorNombre() {
-		Usuario us = dao.findByNombre("nelson-lz");
-		
-		assertNotNull(us);
+		String userName = "nelson-lz";
+		Usuario us = dao.findByNombre(userName);
+		System.out.println(us.getNombre());
+		assertTrue(us.getNombre().equals(userName));
 	}
 	
 	@Test
 	public void gerUsuariosPorNivelAcceso() {
-		List<Usuario> usuarios = dao.findByNivelAccesoIgnoreCase("adm");
+		List<Usuario> usuarios = dao.findByNivelAccesoIgnoreCase("Adm");
 		System.out.println("Cantidad de usuarios x Nivel="+usuarios.size());
-		assertNotNull(usuarios.size());
+		assertTrue(usuarios.size() > 0);
 	}
 	@Test
 	public void getUsuarioPorEstado() {
 		List<Usuario> usuarios = dao.findByEstadoIgnoreCase("ACt");
 		System.out.println("Catidad de usuarios x Estado=" + usuarios.size());
-		assertNotNull(usuarios);
+		assertTrue(usuarios.size() > 0);;
 	}
 }

@@ -7,8 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedNativeQuery;
+
 
 @Entity
+@NamedNativeQuery(name="Funcionario.findByAniversariosDelMes",
+        query="SELECT * FROM funcionario WHERE EXTRACT(month from fecha_nacimiento) = ?",resultClass = Funcionario.class)
 public class Funcionario {
 
 	@Id

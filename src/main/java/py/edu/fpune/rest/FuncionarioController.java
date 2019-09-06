@@ -1,8 +1,5 @@
 package py.edu.fpune.rest;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,10 +33,9 @@ public class FuncionarioController {
 	List<Funcionario> getPorApellido(@PathVariable String apellido){
 		return dao.findFirst4ByApellidosContainingIgnoreCase(apellido);
 	}
-	@GetMapping("/funcionario/aniver/{desde}/{hasta}")
-	List<Funcionario> getAniversariosEntreFechas(@PathVariable String desde, @PathVariable String hasta) throws ParseException{
-		System.out.println("desde="+desde + ", hasta=" +hasta);
+	@GetMapping("/funcionario/aniver/{numeroDelMes}")
+	List<Funcionario> getAniversariosEntreFechas(@PathVariable Integer numeroDelMes){
 		//TODO hay que encotrar la anotacion de conversion de string a date
-		return dao.findByFechaNacimientoBetween(new SimpleDateFormat("yyyy-MM-dd").parse(desde), new SimpleDateFormat("yyyy-MM-dd").parse(hasta));
+		return dao.findByAniversariosDelMes(numeroDelMes);
 	}
 }
