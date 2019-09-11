@@ -132,10 +132,10 @@ public class Inscripcion {
 
 	@Override
 	public String toString() {
-		return "Inscripcion [id=" + id + ", clienteId=" + clienteId + ", tipoInscripcion=" + tipoInscripcion
+		return "Inscripcion [id=" + id + ", clienteId=" + clienteId.getId() + ", tipoInscripcion=" + tipoInscripcion
 				+ ", fechaInscripcion=" + fechaInscripcion + ", fechaVencimiento=" + fechaVencimiento
-				+ ", montoMensualidad=" + montoMensualidad + ", usuarioId=" + usuarioId + ", fechaModificacion="
-				+ fechaModificacion + ", estado=" + estado + ", monedaId=" + monedaId + "]";
+				+ ", montoMensualidad=" + montoMensualidad + ", usuarioId=" + usuarioId.getNombre() + ", fechaModificacion="
+				+ fechaModificacion + ", estado=" + estado + ", monedaId=" + monedaId.getDescripcion() + "]";
 	}
 
 }
