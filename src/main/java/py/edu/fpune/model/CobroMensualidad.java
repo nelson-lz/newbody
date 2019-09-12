@@ -1,5 +1,6 @@
 package py.edu.fpune.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -120,8 +121,8 @@ public class CobroMensualidad {
 
 	@Override
 	public String toString() {
-		return "CobroMensualidad [id=" + id + ", inscripcionId=" + inscripcionId + ", fechaPago=" + fechaPago
-				+ ", monedaId=" + monedaId + ", montoPagado=" + montoPagado + ", descuento=" + descuento + ", total="
-				+ total + ", usuarioId=" + usuarioId + ", estado=" + estado + "]";
+		return "CobroMensualidad [id=" + id + ", inscripcionId=" + inscripcionId.getId() + ", fechaPago=" + new SimpleDateFormat("yyyy-MM-dd").format(fechaPago)
+				+ ", monedaId=" + monedaId.getDescripcion() + ", montoPagado=" + montoPagado + ", descuento=" + descuento + ", total="
+				+ total + ", usuarioId=" + usuarioId.getNombre() + ", estado=" + estado + "]";
 	}
 }
