@@ -54,6 +54,12 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+		<!-- JWT -->
+		<dependency>
+			<groupId>com.auth0</groupId>
+			<artifactId>auth0</artifactId>
+			<version>1.14.2</version>
+		</dependency>
 		<!-- TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

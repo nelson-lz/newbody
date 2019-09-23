@@ -11,7 +11,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import py.edu.fpune.rest.exceptions.JwtException;
-
+//clase fachada de la libreria auth0
 @Service
 public class JwtService {
 
@@ -20,7 +20,8 @@ public class JwtService {
 	public static final String ROLES ="roles";
 	public static final String ISSUER ="fpune-spring5";
 	public static final int EXPIRES_IN_MILLISECOND =3600000;
-	public static final String SECRET ="clave-secreta-test";
+	public static final String SECRET ="clave-secreta-test";//la clave se debe de optener por una variable de entorno 
+															//y luego para el classpath y luego se carga aqui por seguridad
 	
 	public String createToken(String user, List<String> roles) {
 		return JWT.create()
