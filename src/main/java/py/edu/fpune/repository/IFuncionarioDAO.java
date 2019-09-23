@@ -1,9 +1,7 @@
 package py.edu.fpune.repository;
 
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import py.edu.fpune.model.Funcionario;
 
 public interface IFuncionarioDAO extends JpaRepository<Funcionario, Integer>{
