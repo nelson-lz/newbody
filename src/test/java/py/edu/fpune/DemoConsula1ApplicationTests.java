@@ -27,12 +27,12 @@ public class DemoConsula1ApplicationTests {
 	@Test
 	public void modificarUsuario() {
 		Usuario usu = new Usuario();
-		usu.setId(1);
-		usu.setNombre("nelson-lz");
+		usu.setId(null);
+		usu.setNombre("angeles");
 		usu.setPass(encoder.encode("123"));
 		usu.setNivelAcceso("ADM");
 		usu.setEstado("ACT");
-		Funcionario fun = daoFun.findById(1).get();
+		Funcionario fun = daoFun.findById(7).get();
 		usu.setFuncionario(fun);
 		
 		Usuario retorno = dao.save(usu);
