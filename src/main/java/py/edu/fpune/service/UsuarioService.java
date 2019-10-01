@@ -25,12 +25,13 @@ public class UsuarioService implements UserDetailsService{
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Usuario us = dao.findByNombre(username);
 		String roles = "ADMIN";
-		//TODO Hay que leer los roles que se desean cargar para el usuario obtenido
+		String rol = us.getNivelAcceso();
+		//TODO Hay que leer los roles que se desean cargar para el usuario obtenido (NOTE COMPLIQUES solo un rol por usuario!)
 		//List<GrantedAuthority> roles = new ArrayList<>();
 		//roles.add(new SimpleGrantedAuthority("ADMIN"));
 		//UserDetails userDet = new User(us.getNombre(),us.getPass(),roles);
 		//return userDet;
-		return userBuilder(us.getNombre(), us.getPass(), roles);
+		return userBuilder(us.getNombre(), us.getPass(), rol);
 	}
 	
 	private User userBuilder(String username, String password, String... roles) {
