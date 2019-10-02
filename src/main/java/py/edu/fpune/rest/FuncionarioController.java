@@ -93,16 +93,16 @@ public class FuncionarioController {
 	Funcionario updateFuncionario(@PathVariable Integer id, @RequestBody @Valid Funcionario funcionario) {
 		
 		return dao.findById(id).map(fun -> {
-			fun.setCedula(funcionario.getCedula());
-			fun.setNombres(funcionario.getNombres());
-			fun.setApellidos(funcionario.getApellidos());
-			fun.setFechaNacimiento(funcionario.getFechaNacimiento());
-			fun.setTelef1(funcionario.getTelef1());
-			fun.setTelef2(funcionario.getTelef2());
-			fun.setDireccion(funcionario.getDireccion());
-			fun.setEstado(funcionario.getEstado());
-			fun.setCajeroTesorero(funcionario.getCajeroTesorero());
-			fun.setSalario(funcionario.getSalario());
+			if(funcionario.getCedula() != null) fun.setCedula(funcionario.getCedula());
+			if(funcionario.getNombres() != null) fun.setNombres(funcionario.getNombres());
+			if(funcionario.getApellidos() != null) fun.setApellidos(funcionario.getApellidos());
+			if(funcionario.getFechaNacimiento() != null) fun.setFechaNacimiento(funcionario.getFechaNacimiento());
+			if(funcionario.getTelef1() != null) fun.setTelef1(funcionario.getTelef1());
+			if(funcionario.getTelef2() != null) fun.setTelef2(funcionario.getTelef2());
+			if(funcionario.getDireccion() != null) fun.setDireccion(funcionario.getDireccion());
+			if(funcionario.getEstado() != null) fun.setEstado(funcionario.getEstado());
+			if(funcionario.getCajeroTesorero() != null) fun.setCajeroTesorero(funcionario.getCajeroTesorero());
+			if(funcionario.getSalario() != null) fun.setSalario(funcionario.getSalario());
 			return dao.save(fun);
 		}).orElseGet(()-> {
 			funcionario.setId(id);

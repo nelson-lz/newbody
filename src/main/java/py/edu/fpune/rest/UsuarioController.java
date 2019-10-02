@@ -83,11 +83,11 @@ public class UsuarioController {
 		//System.out.println("Usuario::"+usuario);
 		Funcionario fun = funDao.findById(usuario.getFuncionario().getId()).get();
 		return dao.findById(id).map(usu -> {
-			usu.setNombre(usuario.getNombre());
-			usu.setPass(usuario.getPass());
-			usu.setNivelAcceso(usuario.getNivelAcceso());
-			usu.setFuncionario(fun);
-			usu.setEstado(usuario.getEstado());
+			if(usuario.getNombre() != null) usu.setNombre(usuario.getNombre());
+			if(usuario.getPass() != null) usu.setPass(usuario.getPass());
+			if(usuario.getNivelAcceso() != null) usu.setNivelAcceso(usuario.getNivelAcceso());
+			if(usuario.getFuncionario() != null) usu.setFuncionario(fun);
+			if(usuario.getEstado() != null) usu.setEstado(usuario.getEstado());
 			return dao.save(usu);
 		}).orElseGet(()->{
 			usuario.setId(id);
