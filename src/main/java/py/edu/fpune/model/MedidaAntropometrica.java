@@ -24,14 +24,14 @@ public class MedidaAntropometrica {
 	@ManyToOne
 	@JoinColumn(name="usuario_id")
 	private Usuario UsuarioId;
-	private float altura;
-	private float cintura;
-	private float pecho;
-	private float gluteo;
-	private float peso;
-	private float grasa;
-	private float hueso;
-	private float musculo;
+	private float altura=0;
+	private float cintura=0;
+	private float pecho=0;
+	private float gluteo=0;
+	private float peso=0;
+	private float grasa=0;
+	private float hueso=0;
+	private float musculo=0;
 	private Date fecha;
 	private byte[] foto1;
 	private byte[] foto2;
