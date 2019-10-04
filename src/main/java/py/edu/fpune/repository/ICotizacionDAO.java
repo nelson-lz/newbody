@@ -11,5 +11,9 @@ public interface ICotizacionDAO extends JpaRepository<Cotizacion, Integer>{
 	
 	List<Cotizacion> findByMonedaIdOrderByFechaAsc(Moneda moneda);
 	
-	List<Cotizacion> findByEstadoIgnoreCase(String estado);
+	Cotizacion findFirstByMonedaIdOrderByFechaAsc(Moneda moneda);
+	Cotizacion findFirstByMonedaIdOrderByFechaDesc(Moneda moneda);
+	
+	List<Cotizacion> findByEstadoIgnoreCaseOrderByFechaAsc(String estado);
+	List<Cotizacion> findByEstadoIgnoreCaseOrderByFechaDesc(String estado);
 }
