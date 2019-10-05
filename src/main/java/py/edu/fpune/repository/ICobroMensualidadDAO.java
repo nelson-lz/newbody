@@ -18,5 +18,6 @@ public interface ICobroMensualidadDAO extends JpaRepository<CobroMensualidad, In
 	List<CobroMensualidad> findByFechaPagoEqualsAndEstadoEqualsIgnoreCase(Date hoy, String estado);
 	
 	List<CobroMensualidad> findFirstByInscripcionId(Inscripcion inscripcionId);
+	List<CobroMensualidad> findByInscripcionId(Inscripcion inscripcionId);
 	
 }
