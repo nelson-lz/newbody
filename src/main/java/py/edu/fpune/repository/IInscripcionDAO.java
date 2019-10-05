@@ -12,6 +12,8 @@ import py.edu.fpune.model.Usuario;
 public interface IInscripcionDAO extends JpaRepository<Inscripcion, Integer>{
 
 	List<Inscripcion> findByClienteId(Cliente clienteId);
+	List<Inscripcion> findByClienteIdAndFechaInscripcionBetween(Cliente cliente, Date desde, Date hasta);
+	List<Inscripcion> findByClienteIdAndFechaVencimientoBetween(Cliente cliente, Date desde, Date hasta);
 	
 	List<Inscripcion> findByEstado(String estado);
 	
